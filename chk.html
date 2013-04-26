@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Active Graphs and Charts</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <link rel=STYLESHEET type="text/css" href="css/960.css" />
+  <link rel=STYLESHEET type="text/css" href="css/jpprodstyle.css" />
+  <script src="js2/jpgraph.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+
+
+<!-- Title area -->
+<div class='container_12 header'>
+  
+  <div class='grid_7 omega product_title'>
+    <h1>Rejection Rate</h1>
+  </div>
+</div>
+
+<!-- top menu bar -->
+
+
+    <div class='grid_10'>
+    <p>&nbsp;</p>
+    <p>Mouseover the data points to see the popup display</p>
+
+    <div id="graph"></div>
+
+    <script type="text/javascript" charset="utf-8">
+
+    window.onload = function () {
+
+        /**
+         * set graph data
+         */
+        var data = ({series1data : new Array('6097','5970','3230','7236','3236','4723','546','6236','3236','5246','4928','1296'),
+                     series2data : new Array('500','1200','1800','1235','4231','5738','8236','4230','2432','1236','4237','7234'),
+                     series3data : new Array('1200','7000','1560','6230','2230','3720','4230','1652','4378','1462','2654','5321')
+                    });
+					
+					
+
+        /**
+         * draw the graph
+         */
+        var graph = new JpGraph(
+                'line',
+                'graph',
+                data,
+                {
+                  width                 : 800,
+                  height                : 500,
+                  backgroundColor       : '#f9f5da',
+                  series1               : "title: Motherboards; color:#ea7532; scale:left",
+                  series2               : "title: Switches; color:#00a550; scale:left",
+                  series3               : "title: Routers; color:#367adf; scale:left",
+                  xLabels               : 'January|February|March|April|May|June|July|August|September|October|November|December',
+                  xfontColor            : "#444",
+                  xopacity              : 1.0,
+                  xfontSize             : 12,
+                  xfontWeight           : "normal",
+                  xfontStyle            : "normal",
+                  xfontFamily           : "Helvetica, Arial, Verdana, sans-serif",
+                  xtextAnchor           : "end",
+                  xrotation             : 315,
+                  displayValues         : false,
+                  title                 : "Rate Of Rejection",
+                  titleFontSize         : "24px",
+                  titleFontWeight       : "normal",
+                  titleFontStyle        : "normal",
+                  titleFontFamily       : "Helvetica, Arial, Verdana, sans-serif",
+                  titleFontColor        : "#444",
+                  xTitle                : "Months",
+                  xTitleFontSize        : 16,
+                  xTitleFontWeight      : "normal",
+                  xTitleFontStyle       : "normal",
+                  xTitleFontFamily      : "Helvetica, Arial, Verdana, sans-serif",
+                  xTitleFontColor       : "#444",
+                  yTitle                : "Gross Value",
+                  yTitleFontSize        : 16,
+                  yTitleFontWeight      : "normal",
+                  yTitleFontStyle       : "normal",
+                  yTitleFontFamily      : "Helvetica, Arial, Verdana, sans-serif",
+                  yTitleFontColor       : "#444",
+                  threeD                : true,
+                  depth                 : 10,
+                  animationTime         : 750,
+                  gridBackgroundColor   : "#dbd39a",
+                  gridBanding           : true,
+                  gridOpacity           : 1.0,
+                  gridBackgroundImage   : "",
+                  gridLineWidth         : 0.3,
+                  gridLineStyle         : ". ",
+                  gridAxisWidth         : 2,
+                  gridAxisStyle         : "- ",
+                  gridNRows             : 6,
+                  gridColSpacing        : 65,
+                  gridRowSpacing        : 50,
+                  gridxPos              : 75,
+                  gridyPos              : 400,
+                  xLabelPre             : "",
+                  xLabelPost            : "",
+                  yLabelColor           : "#777",
+                  yLabelPre             : "",
+                  yLabelPost            : "",
+                  x2LabelPre            : "",
+                  x2LabelPost           : "",
+                  y2LabelPre            : "",
+                  y2LabelPost           : " units",
+                  ndecplaces            : 0,
+                  ndecplaces2           : 3,
+                  xrotation             : 315,
+                  legendXpos            : 250,
+                  legendYpos            : 45,
+                  legendPadding         : 6,
+                  legendRoundRadius     : 6,
+                  legendOpacity         : 0.7,
+                  legendBackground      : false,
+                  legendBackgoundColor  : '#ffffff',
+                  legendBorderColor     : '#888',
+                  legendBorderWidth     : 0,
+                  legendStyle           : 'horizontal',
+                  legendTitle           : 'Products',
+                  legendTitleFontSize   : 14,
+                  legendTitleFontWeight : 'normal',
+                  legendTitleFontStyle  : 'normal',
+                  legendTitleFontFamily : 'Helvetica, Arial, Verdana, sans-serif',
+                  legendTitleFontColor  : '#000',
+                  legendFontSize        : 12,
+                  legendFontWeight      : 'normal',
+                  legendFontStyle       : 'normal',
+                  legendFontFamily      : 'Helvetica, Arial, Verdana, sans-serif',
+                  legendFontColor       : '#444'
+                });
+    }
+
+    </script>
+
+  
+    </div>
+
+</html>

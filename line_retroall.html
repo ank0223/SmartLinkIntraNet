@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="css/nav.css" />  
+  
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+  <script src="js/functions.js" type="text/javascript"></script>
+
+  
+  
+  
+    <BODY bgcolor="#6a6a6a">
+
+
+
+
+
+
+
+
+
+
+
+	<meta charset="utf-8">
+	<title>ZingChart Docs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="ZingChart Documentation">
+	<meta name="author" content="ZingChart">
+	<link href="zingchart_trial/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	</style>
+	<link href="zingchart_trial/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<!--[if lt IE 9]>
+	<script src="resources/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<script src="zingchart_trial/resources/jquery.min.js"></script>
+
+	<script src="zingchart_trial/google-code-prettify/prettify.js"></script>
+	<link href="zingchart_trial/google-code-prettify/prettify.css" rel="stylesheet">
+
+	<link href="zingchart_trial/resources/zcdocs.css" rel="stylesheet">
+
+	<script src="line_retro.js"></script>
+	<noscript>
+		<div class="box">
+			Some browsers (e.g. Internet Explorer) may have by default security settings that restrict the execution of JavaScript code when the html pages are loaded locally.
+			<br>In order to fully experience the ZingChart demos when using these browsers, the pages should be opened via a web server, and/or by using the "Load data from JavaScript object" option.
+			<br>Also, this demo can be accessed online at <a href="http://www.zingchart.com/package/zingchart_files/html5_examples/line_retro.html">http://www.zingchart.com/package/zingchart_files/html5_examples/line_retro.html</a>
+		</div>
+	</noscript>
+
+</head>
+
+<body class "no-js" onload="prettyPrint()">
+
+ <script>
+			var el = document.getElementsByTagName("body")[0];
+			el.className = "";
+		</script>
+        <noscript>
+        	[if IE]
+            	<link rel="stylesheet" href="css/ie.css">
+            [endif]
+        </noscript>
+		<nav id="topNav" >
+		<nav id="head">
+        	<ul>
+            	<li><a href="addrem.php" title="Products">Add/Remove Product</a>
+				
+              <li><a href="#" title="Job">Job-Wise Analysis</a>
+			  <ul>
+			  <li><a href="job.php" title="SMT">% Rejection</a></li>
+                        <li><a href="jobcon.php" title="PTH">% Contribution</a></li>
+						 <li><a href="jobfpy.php" title="PTH">FPY</a></li>
+			  </ul>
+			  </li>
+		      <li><a href="addmember.php" title="Add Member">Add a new member</a></li>
+			  <li><a href="#" title="All Members">Change view</a>
+			  <ul>
+			  <li><a href="choosewise.php" title="SMT">Toggle View</a></li>
+                        <li><a href="wheel.htm" title="PTH">Wheel Select</a></li>
+			  </ul>
+			  </li>
+			  <li><a href="choosewise.php" title="Home Page">User Home Page</a></li>
+			  <li><a href="logout.php" title="Logout">Logout</a></li>
+		 
+		  </ul>
+		  </nav>
+        </nav>
+		
+		<script src="js/jquery.js"></script>
+        <script src="js/modernizr.js"></script>
+		<script>
+			(function($){
+				
+				//cache nav
+				var nav = $("#topNav");
+				
+				//add indicator and hovers to submenu parents
+				nav.find("li").each(function() {
+					if ($(this).find("ul").length > 0) {
+						$("<span>").text("^").appendTo($(this).children(":first"));
+
+						//show subnav on hover
+						$(this).mouseenter(function() {
+							$(this).find("ul").stop(true, true).slideDown();
+						});
+						
+						//hide submenus on exit
+						$(this).mouseleave(function() {
+							$(this).find("ul").stop(true, true).slideUp();
+						});
+					}
+				});
+			})(jQuery);
+		</script>
+  
+
+
+
+	<div class="navbar navbar-fixed-top" id="topbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="#"><b><span style="color:#fff">&copy; Ankit Aggarwal, Anshul Sharma :   Smart</span><span style="color:#00BBF1">Link</span></b> <span style="color:#fff">Networks</span></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+
+		<script type="text/javascript">
+		function render() {
+			var sDataSource = document.getElementById('datasource').value;
+			zingchart.OFFSET = 1;
+			zingchart.render({
+				id : 'zc',
+				output : 'svg',
+				width : 500,
+				height : 400,
+				dataurl : (sDataSource=='url'?'line_retroall.php':null),
+				//data : (sDataSource=='js'?gdata:null)
+			});
+		}
+		$(document).ready(function() {
+			if (window.location.protocol == 'file:') {
+				document.getElementById('localajax').style.display = 'block';
+			}
+			
+
+			
+			zingchart.MODULESDIR = "zingchart_trial/html5_scripts/modules/";
+			render();
+
+			
+		});
+		</script>
+
+		<p>
+			Data loaded from
+			<select id="datasource" onchange="render()">
+				<option value="url" selected="selected">URL object</option>
+		
+			</select>
+		</p>
+
+		<div class="well" id="zc" style="float:left;width:500px;height:400px"></div>
+
+		
+
+		<div style="clear:both"></div>
+
+		<hr>
+
+	</div>
+
+	<script src="zingchart_trial/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="zingchart_trial/html5_scripts/modules/zingchart-html5-core-min.js"></script>
+
+	<script src="zingchart_trial/html5_scripts/license.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+ 
+
+
+<?php
+
+
+session_start();
+$z=$_SESSION['em'];
+
+
+//setting variables
+
+$dbHost = "localhost";
+$dbUser = "root";
+$dbPass = "";
+$dbDatabase = "login";
+
+
+
+//connet to the mysql server
+
+$db = mysql_connect("$dbHost", "$dbUser", "$dbPass") ;
+
+
+
+//choose a database
+
+mysql_select_db("$dbDatabase", $db);
+echo"<title>";
+
+$z= $_SESSION['em'];
+$query="SELECT firstname FROM `detail` WHERE email='$z'";
+$result=mysql_query($query);
+$row = mysql_fetch_array($result);
+echo $row['firstname'];
+?>
+</title>
+
+
+
+
+
+
+
+
+ <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  
+  <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />  
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+  <script src="js/functions.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="header"> 
+    <ul>
+      <li><a href="#"><span>extra button</span></a></li>
+    </ul>
+  </div>
+  <div id="about">
+    <div id="story">
+      <h1><?php
+	  $query="SELECT firstname FROM `detail` WHERE email='$z'";
+$result=mysql_query($query);
+$row = mysql_fetch_array($result);
+echo $row['firstname'];
+?></h1>
+      <h2>sirname</h2>
+      <p><?php
+
+$query="SELECT aboutme FROM `info` WHERE email='$z'";
+$result=mysql_query($query);
+$row = mysql_fetch_array($result);
+echo $row['aboutme'];
+
+?></p>
+    </div>
+    <ul id="contact">
+      <li><span>Phone</span> <strong>0612345678</strong></li>
+      
+      <li><span>Email</span> <strong><?php echo $_SESSION['em']; ?></strong></li>
+    </ul>
+    <a href="filechoose.php"><img src=<?php 
+echo " \"upload/$z.jpg\"" ; ?> id="picture" alt=""></a>
+  </div>
+  <div class="section">
+    <h2>Education</h2>
+    <div class="item">
+      <h3><?php $query="SELECT studiedat FROM `info` WHERE email='$z'";
+$result=mysql_query($query);
+$row = mysql_fetch_array($result);
+echo $row['studiedat']; ?></h3>
+      <h4>Science</h4>
+      <div class="date">2000 - 2005</div>
+      <div class="description">
+        <p>Add description here</p>
+      </div>
+    </div>
+	</div>
+	
+	<div class="section">
+    <h2>Lives In</h2>
+	 <div class="item">
+      <h3><?php $query="SELECT livesin FROM `info` WHERE email='$z'";
+$result=mysql_query($query);
+$row = mysql_fetch_array($result);
+echo $row['livesin'];?></h3>
+      <h4>add detail here</h4>
+      <div class="date">2006 - 2008</div>
+      <div class="description">
+        <p>add description here</p>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="section">
+    <h2>Has Worked At</h2>
+    <div class="item">
+      <h3><a href="#">name of the company</a></h3>
+      <h4>post he served</h4>
+      <div class="date">2009</div>
+      <div class="description">
+        <p>add description here</p>
+      </div>
+    </div>
+	</div>
+	
+	
+   <div class="section">
+    <h2>Marital Status</h2>
+   <div class="item">
+      <h3><?php $query="SELECT marital FROM `info` WHERE email='$z'";
+$result=mysql_query($query);
+$row = mysql_fetch_array($result);
+echo $row['marital']; ?></h3>
+      <h4>detail</h4>
+      <div class="date">2009 - current</div>
+      <div class="description">
+        <p>description</p>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!--<div class="section">
+    <h2>Skills</h2>
+    <div class="item">
+      <h3>Photoshop</h3>
+      <div class="description">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+    </div>
+    <div class="item">
+      <h3>HTML/CSS</h3>
+      <div class="description">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+    </div>
+    <div class="item">
+      <h3>PHP</h3>
+      <div class="description">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+    </div>
+  </div> -->
+  
+</body>
+</html>
